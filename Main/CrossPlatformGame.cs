@@ -22,8 +22,8 @@ namespace MurderMystery.Main
         public static readonly string SETTINGS_DIRECTORY = Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "AppData\\Local") + "\\" + CrossPlatformGame.GAME_NAME;
 
         private const int WINDOWED_MARGIN = 34;
-        private const int TARGET_SCREEN_WIDTH = 320;
-        private const int TARGET_SCREEN_HEIGHT = 240;
+        private const int TARGET_SCREEN_WIDTH = 1920;
+        private const int TARGET_SCREEN_HEIGHT = 1080;
         private const int MAXIMUM_SCREEN_WIDTH = 1920;
         private const int MAXIMUM_SCREEN_HEIGHT = 1080;
 
@@ -117,6 +117,7 @@ namespace MurderMystery.Main
             {
                 int availableHeight = originalHeight - WINDOWED_MARGIN;
                 int scale = availableHeight / TARGET_SCREEN_HEIGHT;
+                if (scale < 1) scale = 1;
 
                 screenScale = scale;
                 scaledScreenWidth = TARGET_SCREEN_WIDTH * scale;
